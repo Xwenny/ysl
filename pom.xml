@@ -11,6 +11,7 @@
     <modules>
         <module>ysl-common</module>
         <module>ysl-manager-web</module>
+        <module>mybaties-generator</module>
     </modules>
 
     <properties>
