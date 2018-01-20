@@ -27,7 +27,7 @@
 
         <!-- targetProject:生成PO类的位置 -->
         <javaModelGenerator targetPackage="com.wenny.ysl.pojo"
-                            targetProject="src">
+                            targetProject="src/main/java/">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -35,14 +35,14 @@
         </javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
         <sqlMapGenerator targetPackage="com.wenny.ysl.mapperxml"
-                         targetProject="src">
+                         targetProject="src/main/java/">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.wenny.ysl.mapperinterface"
-                             targetProject="src">
+                             targetProject="src/main/java/">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
@@ -58,6 +58,5 @@
         <table schema="" tableName="tb_order_item"></table>
         <table schema="" tableName="tb_order_shipping"></table>
         <table schema="" tableName="tb_user"></table>
-
     </context>
 </generatorConfiguration>
