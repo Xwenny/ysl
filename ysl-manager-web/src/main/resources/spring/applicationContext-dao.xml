@@ -21,12 +21,13 @@
         <property name="minIdle" value="5" />
     </bean>
 
-    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wenny.ysl.mapper"></property>
+        <property name="basePackage" value="com.wenny.ysl.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 </beans>
