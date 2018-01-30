@@ -1,7 +1,7 @@
 package com.wenny.ysl.dao;
 
-import com.wenny.ysl.pojo.TbItemParam;
-import com.wenny.ysl.pojo.TbItemParamExample;
+import com.wenny.ysl.domain.TbItemParam;
+import com.wenny.ysl.domain.TbItemParamExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

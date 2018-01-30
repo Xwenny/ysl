@@ -1,7 +1,7 @@
 package com.wenny.ysl.dao;
 
-import com.wenny.ysl.pojo.TbOrderShipping;
-import com.wenny.ysl.pojo.TbOrderShippingExample;
+import com.wenny.ysl.domain.TbOrderShipping;
+import com.wenny.ysl.domain.TbOrderShippingExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

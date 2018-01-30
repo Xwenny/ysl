@@ -1,7 +1,7 @@
 package com.wenny.ysl.dao;
 
-import com.wenny.ysl.pojo.TbContentCategory;
-import com.wenny.ysl.pojo.TbContentCategoryExample;
+import com.wenny.ysl.domain.TbContentCategory;
+import com.wenny.ysl.domain.TbContentCategoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
