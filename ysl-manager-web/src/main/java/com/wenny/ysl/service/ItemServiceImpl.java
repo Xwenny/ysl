@@ -4,11 +4,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.wenny.ysl.dao.TbItemMapper;
 import com.wenny.ysl.domain.EUDataGridResult;
+import com.wenny.ysl.domain.TaotaoResult;
 import com.wenny.ysl.domain.TbItem;
 import com.wenny.ysl.domain.TbItemExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.IDUtils;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -46,5 +49,18 @@ public class ItemServiceImpl implements ItemService{
         PageInfo<TbItem> pageInfo = new PageInfo<>(list);
         result.setTotal(pageInfo.getTotal());
         return result;
+    }
+
+    @Override
+    public TaotaoResult createItem(TbItem item) {
+        Long itemId = IDUtils.genItemId();
+        item.setId(itemId);
+        item.setStatus((byte)1);
+        item.setCreated(new Date());
+        item.setUpdated(new Date());
+
+        itemMapper.insert(item);
+        return TaotaoResult.ok();
+
     }
 }
