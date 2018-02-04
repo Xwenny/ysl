@@ -2,11 +2,10 @@ package com.wenny.ysl.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wenny.ysl.dao.TbItemDescMapper;
 import com.wenny.ysl.dao.TbItemMapper;
-import com.wenny.ysl.domain.EUDataGridResult;
-import com.wenny.ysl.domain.TaotaoResult;
-import com.wenny.ysl.domain.TbItem;
-import com.wenny.ysl.domain.TbItemExample;
+import com.wenny.ysl.dao.TbItemParamItemMapper;
+import com.wenny.ysl.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utils.IDUtils;
@@ -19,6 +18,12 @@ public class ItemServiceImpl implements ItemService{
 
     @Autowired
     private TbItemMapper itemMapper;
+
+    @Autowired
+    private TbItemDescMapper itemDescMapper;
+
+    @Autowired
+    private TbItemParamItemMapper itemParamItemMapper;
 
     @Override
     public TbItem getItemById(long itemId){
@@ -52,7 +57,7 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public TaotaoResult createItem(TbItem item) {
+    public TaotaoResult createItem(TbItem item,String desc,String itemParam) throws Exception {
         Long itemId = IDUtils.genItemId();
         item.setId(itemId);
         item.setStatus((byte)1);
@@ -60,7 +65,37 @@ public class ItemServiceImpl implements ItemService{
         item.setUpdated(new Date());
 
         itemMapper.insert(item);
+        TaotaoResult result = insertItemDesc(itemId,desc);
+
+        if (result.getStatus()!=200){
+            throw new Exception();
+        }
+        result = insertItemParamItem(itemId,itemParam);
+        if (result.getStatus()!=200){
+            throw new Exception();
+        }
         return TaotaoResult.ok();
 
+    }
+
+    private TaotaoResult insertItemDesc(Long itemId,String desc){
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setItemId(itemId);
+        itemDesc.setItemDesc(desc);
+        itemDesc.setCreated(new Date());
+        itemDesc.setUpdated(new Date());
+        itemDescMapper.insert(itemDesc);
+        return TaotaoResult.ok();
+
+    }
+
+    private TaotaoResult insertItemParamItem(Long itemId,String itemParam){
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setItemId(itemId);
+        itemParamItem.setParamData(itemParam);
+        itemParamItem.setCreated(new Date());
+        itemParamItem.setUpdated(new Date());
+        itemParamItemMapper.insert(itemParamItem);
+        return TaotaoResult.ok();
     }
 }
