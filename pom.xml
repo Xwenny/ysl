@@ -12,6 +12,7 @@
         <module>ysl-common</module>
         <module>ysl-manager-web</module>
         <module>mybaties-generator</module>
+        <module>taotao-rest</module>
     </modules>
 
     <properties>
