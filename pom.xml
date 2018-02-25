@@ -13,6 +13,7 @@
         <module>ysl-manager-web</module>
         <module>mybaties-generator</module>
         <module>taotao-rest</module>
+        <module>ysl-portal</module>
     </modules>
 
     <properties>
