@@ -14,6 +14,7 @@
         <dependency>
             <groupId>com.wenny.ysl</groupId>
             <artifactId>ysl-manager-web</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
