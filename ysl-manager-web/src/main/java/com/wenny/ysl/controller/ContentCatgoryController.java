@@ -1,6 +1,7 @@
 package com.wenny.ysl.controller;
 
 import com.wenny.ysl.domain.EUTreeNode;
+import com.wenny.ysl.domain.TaotaoResult;
 import com.wenny.ysl.service.ContentCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,5 +22,19 @@ public class ContentCatgoryController {
     public List<EUTreeNode> getContentCatList(@RequestParam(value = "id",defaultValue = "0") long parentid){
        List<EUTreeNode> list = contentCategoryService.getCategoryList(parentid);
        return list;
+    }
+
+    @RequestMapping("/create")
+    @ResponseBody
+    public TaotaoResult createContentCatgory(Long parentId,String name){
+        TaotaoResult result = contentCategoryService.insertComtentCategory(parentId,name);
+        return result;
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public TaotaoResult deleteContentCategory(long id){
+        TaotaoResult result = contentCategoryService.deleteContentCategory(id);
+        return result;
     }
 }
