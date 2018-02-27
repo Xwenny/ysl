@@ -70,12 +70,15 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
             parentCat.setIsParent(false);
             contentCategoryMapper.updateByPrimaryKey(parentCat);
         }
-
             return TaotaoResult.ok();
-
-
-
-
         }
+
+    @Override
+    public TaotaoResult updateContentCategory(long id,String name) {
+        TbContentCategory tbContentCategory = contentCategoryMapper.selectByPrimaryKey(id);
+        tbContentCategory.setName(name);
+        contentCategoryMapper.updateByPrimaryKey(tbContentCategory);
+        return TaotaoResult.ok(tbContentCategory);
+    }
 
 }
