@@ -11,6 +11,11 @@
     <name>taotao-rest Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+        <!-- Redis客户端 -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.wenny.ysl</groupId>
             <artifactId>ysl-manager-web</artifactId>
@@ -19,11 +24,11 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
         <finalName>taotao-rest</finalName>
     </build>
+
 </project>
