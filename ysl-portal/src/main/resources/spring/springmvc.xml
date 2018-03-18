@@ -19,6 +19,13 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-
+    <!-- 拦截器配置 -->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; 拦截订单类请求 &ndash;&gt;-->
+            <!--<mvc:mapping path="/order/**"/>-->
+            <!--<bean class="com.wenny.ysl.portal.interceptor.LoginIntereptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
 </beans>

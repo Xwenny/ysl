@@ -19,6 +19,11 @@
             <artifactId>ysl-manager-web</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.wenny.ysl</groupId>
+            <artifactId>ysl-sso</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
